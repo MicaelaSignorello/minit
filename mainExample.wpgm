@@ -1,0 +1,14 @@
+import wollok.game.*
+import personajes.*
+
+program minit{
+	game.title("Minit!")
+	game.height(12)
+	game.width(25)
+	game.boardGround("background.png")
+	game.addVisual(zarek)
+	game.addVisual(piedra)
+	keyConfig.init()
+
+	game.start()
+}
