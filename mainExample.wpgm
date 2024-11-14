@@ -9,6 +9,7 @@ program minit{
 	game.addVisual(zarek)
 	game.addVisual(piedra)
 	keyConfig.init()
+	controlDeColisiones.init()
 
 	game.start()
 }
