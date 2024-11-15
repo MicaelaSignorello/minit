@@ -10,19 +10,28 @@ object zarek {
     //   method position() = if (centrado) game.center() else game.origin()
 
     method moverArriba(){
-        position = game.at(position.x(), position.y() + 1)
+        position = game.at(position.x(),
+        10.min(position.y() + 1))
     }
 
     method moverAbajo(){
-        position = game.at(position.x(), position.y() - 1)
+        position = game.at(
+        position.x(),
+        0.max(position.y() - 1)
+        )
     }
 
     method moverDer(){
-        position = game.at(position.x() + 1, position.y())
+        position = game.at(
+            24.min(position.x() + 1),
+            position.y())
     }
 
     method moverIzq(){
-        position = game.at(position.x() -1, position.y())
+        position = game.at(
+            0.max(position.x() -1),
+            position.y()
+        )
     }
 
     method moverDireccion(unaDirec){
