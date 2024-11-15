@@ -24,35 +24,47 @@ object zarek {
     method moverIzq(){
         position = game.at(position.x() -1, position.y())
     }
+
+    method moverDireccion(unaDirec){
+        if (unaDirec == "arriba")
+            self.moverArriba()
+        else if (unaDirec == "abajo")
+            self.moverAbajo()
+        else if (unaDirec == "derecha")
+            self.moverDer()
+        else
+            self.moverIzq()
+    }
+    
 }
 
 object keyConfig {
     method init(){
         keyboard.up().onPressDo({
             zarek.moverArriba()
-            unltimaDireccion.direccion("arriba") 
+            opuestoDireccion.direccion("arriba") 
         })
 
         keyboard.down().onPressDo({
             zarek.moverAbajo()
-            unltimaDireccion.direccion("abajo") 
+            opuestoDireccion.direccion("abajo") 
         })
-        
+
         keyboard.right().onPressDo({
             zarek.moverDer()
-            unltimaDireccion.direccion("derecha") 
+            opuestoDireccion.direccion("derecha") 
         })
 
         keyboard.left().onPressDo({
             zarek.moverIzq()
-            unltimaDireccion.direccion("izquierda") 
+            opuestoDireccion.direccion("izquierda") 
         })
     }
 }
-object unltimaDireccion {
+object opuestoDireccion {
     var property direccion = "izquierda"
 
-    method dirceccionOpuesta() { 
+    method direccionOpuesta() { 
         var direccionResultante= ""
         if (direccion == "arriba" )
             direccionResultante = "abajo"
@@ -62,19 +74,17 @@ object unltimaDireccion {
             direccionResultante = "arriba"
         else 
             direccionResultante = "derecha"
+
+        return direccionResultante
     }
 }
 
 object controlDeColisiones {
     method init(){
         game.whenCollideDo(piedra, {
-            zarek => zarek.moverAbajo()
+            zarek => zarek.moverDireccion(opuestoDireccion.direccionOpuesta())
         })
     }
-method colicionHacialaDerecha() {
-  
-}
-
 }
 
 

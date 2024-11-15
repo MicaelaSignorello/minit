@@ -1,13 +1,22 @@
 import wollok.game.*
 import personajes.*
+import interfaz.*
 
 program minit{
 	game.title("Minit!")
 	game.height(12)
 	game.width(25)
 	game.boardGround("background.png")
+
 	game.addVisual(zarek)
+
 	game.addVisual(piedra)
+
+	game.addVisual(reloj)
+	game.addVisual(timer)
+	
+	//game.onTickDo(1000, {reloj.segundo()})
+
 	keyConfig.init()
 	controlDeColisiones.init()
 
