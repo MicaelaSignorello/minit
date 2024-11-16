@@ -9,8 +9,11 @@ class Piedra {
 object paredes{
     //interno.Piedra().forEach( { p=>game.addVisual(new Duro(position=p));})
 }
-
+//1 piedra , 2 tronco(arbol )  5 corazon,
+//	100  puerta 99 puerta abierta, 98 ogro, 97 corazon
 // Agregado 15/11/2024
+
+
 	object estructuraMapa1{
 		var property estructura = [ 
 			0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 ,
@@ -38,9 +41,13 @@ object paredes{
 			0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0
 		]
 }
-
-
-
+/* 1 maca es una princesa que quiere rescatar a su principe atrapado por un 
+ogro(el principe no pude puede combatirlo porque le da ansiedad el color verde ) 
+para eso debe hallar la llave de la armeria donde se encuentra la espada.
+lamentablemente la llave se encuentra en una isla rodeada de agua. para alcanzarla 
+debera derribar el arbol cercano al rio y usarlo como puente.
+ 
+*/
 object mapping{
 	
 	var property mapa_actual = estructuraMapa1.estructura()

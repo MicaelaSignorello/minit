@@ -23,7 +23,7 @@ program minit{
 	// -------- En pruebas aun.
 
 	keyConfig.init()
-	controlDeColisiones.init()
+	//controlDeColisiones.init()
 
 	game.start()
 }
