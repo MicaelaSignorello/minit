@@ -19,7 +19,7 @@ program minit{
 	//game.onTickDo(1000, {reloj.segundo()})
 
 	// Dibujado del mapa:
-	// -> mapping.dibujar()
+	mapping.dibujar()
 	// -------- En pruebas aun.
 
 	keyConfig.init()

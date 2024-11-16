@@ -1,4 +1,5 @@
 import wollok.game.*
+import mapa.*
 
 object zarek {
 
@@ -90,7 +91,7 @@ object opuestoDireccion {
 
 object controlDeColisiones {
     method init(){
-        game.whenCollideDo(piedra, {
+        game.onCollideDo(TipoPared, {
             zarek => zarek.moverDireccion(opuestoDireccion.direccionOpuesta())
         })
     }
@@ -110,6 +111,7 @@ object controlDeColisiones {
     }
 }
 */
+
 
 object piedra {
     method image() = "piedra.png"
