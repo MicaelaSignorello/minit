@@ -1,5 +1,6 @@
 import wollok.game.*
 import personajes.*
+import mapa.*
 import interfaz.*
 
 program minit{
@@ -17,8 +18,18 @@ program minit{
 	
 	//game.onTickDo(1000, {reloj.segundo()})
 
+	// Dibujado del mapa:
+	mapping.dibujar()
+	// -------- En pruebas aun.
+
 	keyConfig.init()
-	controlDeColisiones.init()
+	//controlDeColisiones.init()
+ 
+	game.addVisual(arbolPrueba)
+	game.addVisual(corazonPrueba)
+	game.addVisual(ogroPrueba)
+
+
 
 	game.start()
 }
