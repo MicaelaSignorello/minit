@@ -91,7 +91,7 @@ object opuestoDireccion {
 
 object controlDeColisiones {
     method init(){
-        game.onCollideDo(TipoPared, {
+        game.onCollideDo(piedra, {
             zarek => zarek.moverDireccion(opuestoDireccion.direccionOpuesta())
         })
     }

@@ -16,7 +16,7 @@ program minit{
 	game.addVisual(reloj)
 	game.addVisual(timer)
 	
-	//game.onTickDo(1000, {reloj.segundo()})
+	game.onTick(1000, "timer", { reloj.restarSegundos(1) })
 
 	// Dibujado del mapa:
 	mapping.dibujar()
