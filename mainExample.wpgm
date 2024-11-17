@@ -13,8 +13,11 @@ program minit{
 
 	game.addVisual(piedra)
 
+
 	game.addVisual(reloj)
-	game.addVisual(timer)
+	reloj.iniciar()
+
+	// game.addVisual(timer)
 	
 	//game.onTickDo(1000, {reloj.segundo()})
 
