@@ -25,8 +25,21 @@ program minit{
 	mapping.dibujar()
 	// -------- En pruebas aun.
 
+	// Dibujado del mapa:
+	mapping.dibujar()
+	// -------- En pruebas aun.
+
 	keyConfig.init()
 	//controlDeColisiones.init()
+<<<<<<< HEAD
+=======
+ 
+	game.addVisual(arbolPrueba)
+	game.addVisual(corazonPrueba)
+	game.addVisual(ogroPrueba)
+
+
+>>>>>>> f555e0d8ef131a606f4870821a816023ca68d51d
 
 	game.start()
 }

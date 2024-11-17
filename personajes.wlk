@@ -99,6 +99,7 @@ object opuestoDireccion {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 object controlDeColisiones {
     method init(){
         game.onCollideDo(piedra, {
@@ -107,6 +108,8 @@ object controlDeColisiones {
     }
 }
 =======
+=======
+>>>>>>> f555e0d8ef131a606f4870821a816023ca68d51d
 //object controlDeColisiones {
 //    method init(){
 //        game.onCollideDo(TipoPared, {
@@ -114,7 +117,10 @@ object controlDeColisiones {
 //        })
 //    }
 //}
+<<<<<<< HEAD
 >>>>>>> 5e1a23cca434a4922f2ef4b80a573d68d37767eb
+=======
+>>>>>>> f555e0d8ef131a606f4870821a816023ca68d51d
 
 
 
@@ -138,3 +144,22 @@ object piedra {
 }
 
 //Motor de colisión:
+<<<<<<< HEAD
+=======
+
+
+object arbolPrueba {
+    var property position = game.at(6, 6)
+    var property image = "arbol.png"
+}
+
+object corazonPrueba {
+    var property position = game.at(8, 6)
+    var property image = "corazon.png"
+}
+
+object ogroPrueba {
+    var property position = game.at(6, 8)
+    var property image = "ogro.png"
+}
+>>>>>>> f555e0d8ef131a606f4870821a816023ca68d51d
