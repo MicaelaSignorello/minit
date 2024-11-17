@@ -11,28 +11,23 @@ object zarek {
     //   method position() = if (centrado) game.center() else game.origin()
 
     method moverArriba(){
-        position = game.at(position.x(),
-        10.min(position.y() + 1))
+        var tempPos = game.at(position.x(), 10.min(position.y() + 1))
+        self.position(tempPos) //game.at(position.x(), 10.min(position.y() + 1))
     }
 
     method moverAbajo(){
-        position = game.at(
-        position.x(),
-        0.max(position.y() - 1)
-        )
+        var tempPos = game.at(position.x(), 10.min(position.y() - 1))
+        self.position(tempPos)
     }
 
     method moverDer(){
-        position = game.at(
-            24.min(position.x() + 1),
-            position.y())
+        var tempPos = game.at(position.x() +1, 10.min(position.y()))
+        self.position(tempPos)
     }
 
     method moverIzq(){
-        position = game.at(
-            0.max(position.x() -1),
-            position.y()
-        )
+        var tempPos = game.at(position.x() -1, 10.min(position.y()))
+        self.position(tempPos)
     }
 
     method moverDireccion(unaDirec){
@@ -46,6 +41,20 @@ object zarek {
             self.moverIzq()
     }
     
+
+    method position(prediccionPosicion){
+	var area = []
+	
+	//Colisiones:
+	
+		//Se llena una colección con los objetos que hayan en la posición predecida, se filtra a través de un identificador:
+			area = game.getObjectsIn(prediccionPosicion).filter({ visual => visual.nombre() == "pared"})
+			
+		//Si no se detecta ninguna pared con la colección, simplemente pase a la posición predecida:
+			if (area.size() == 0){
+				position = prediccionPosicion
+			}
+    }
 }
 
 object keyConfig {
@@ -89,6 +98,7 @@ object opuestoDireccion {
     }
 }
 
+<<<<<<< HEAD
 object controlDeColisiones {
     method init(){
         game.onCollideDo(piedra, {
@@ -96,6 +106,15 @@ object controlDeColisiones {
         })
     }
 }
+=======
+//object controlDeColisiones {
+//    method init(){
+//        game.onCollideDo(TipoPared, {
+//            zarek => zarek.moverDireccion(opuestoDireccion.direccionOpuesta())
+//        })
+//    }
+//}
+>>>>>>> 5e1a23cca434a4922f2ef4b80a573d68d37767eb
 
 
 
@@ -117,3 +136,5 @@ object piedra {
     method image() = "piedra.png"
     var property position = game.at(2, 6)
 }
+
+//Motor de colisión:

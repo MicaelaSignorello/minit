@@ -13,8 +13,11 @@ program minit{
 
 	game.addVisual(piedra)
 
+
 	game.addVisual(reloj)
-	game.addVisual(timer)
+	reloj.iniciar()
+
+	// game.addVisual(timer)
 	
 	game.onTick(1000, "timer", { reloj.restarSegundos(1) })
 
@@ -23,7 +26,7 @@ program minit{
 	// -------- En pruebas aun.
 
 	keyConfig.init()
-	controlDeColisiones.init()
+	//controlDeColisiones.init()
 
 	game.start()
 }
