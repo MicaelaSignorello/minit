@@ -9,13 +9,14 @@ class Piedra {
 object paredes{
     //interno.Piedra().forEach( { p=>game.addVisual(new Duro(position=p));})
 }
-//1 piedra , 2 tronco(arbol )  5 corazon,
-//	100  puerta 99 puerta abierta, 98 ogro, 97 corazon
+
+// 1 piedra , 2 tronco(arbol) 5 corazon,
+// 100  puerta 99 puerta abierta, 98 ogro, 97 corazon
 // Agregado 15/11/2024
 
 
 	object estructuraMapa1{
-		var property estructura = [ 
+		var property estructura = [
 			0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 ,
 			    
 			0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 ,
@@ -48,6 +49,7 @@ lamentablemente la llave se encuentra en una isla rodeada de agua. para alcanzar
 debera derribar el arbol cercano al rio y usarlo como puente.
  
 */
+
 object mapping{
 	
 	var property mapa_actual = estructuraMapa1.estructura()
@@ -78,4 +80,14 @@ object mapping{
        		x += 1
         }
     }
+}
+
+object corazon {
+    var property position = game.at(8, 6)
+    var property image = "corazon.png"
+	var property nombre = "corazon"
+
+	method remover(){
+		game.removeVisual(self)
+	}
 }
