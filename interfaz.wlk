@@ -24,7 +24,7 @@ object reloj {
 	}
 	method iniciar(){
 		tiempo = 60
-		game.onTick(2000,"tiempo", {self.pasarTiempo()})
+		game.onTick(2000, "tiempo", {self.pasarTiempo()})
         
 	}
 	method detenerEn(cantidad){

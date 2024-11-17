@@ -13,17 +13,17 @@ program minit{
 
 	game.addVisual(piedra)
 
-
 	game.addVisual(reloj)
 	reloj.iniciar()
 
-	// game.addVisual(timer)
+	game.addVisual(timer)
 	// Dibujado del mapa:
 	mapping.dibujar()
 
 	game.addVisual(arbolPrueba)
 	game.addVisual(corazon)
 	game.addVisual(ogroPrueba)
+
 	controlDeColisiones.init()
 
 	keyConfig.init()
