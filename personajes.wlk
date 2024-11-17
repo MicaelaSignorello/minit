@@ -11,6 +11,11 @@ object zarek {
 
     //   method position() = if (centrado) game.center() else game.origin()
 
+    method tomarCorazon(){
+        zarek.tieneCorazon(true)
+        game.removeVisual(corazon)
+    }
+
     method moverArriba(){
         var tempPos = game.at(position.x(), 10.min(position.y() + 1))
         self.position(tempPos) //game.at(position.x(), 10.min(position.y() + 1))
@@ -97,13 +102,7 @@ object keyConfig {
 
 object controlDeColisiones {
     method init(){
-        game.onCollideDo(corazon, {
-            zarek => game.say(zarek, "hola")//tieneCorazon(true)
-        })
-
-        game.onCollideDo(zarek,
-            {corazon => corazon.remover()}
-        )
+        game.onCollideDo(corazon, {zarek => zarek.tomarCorazon()})
     }
 }
 
