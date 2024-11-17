@@ -20,14 +20,13 @@ program minit{
 	// game.addVisual(timer)
 	// Dibujado del mapa:
 	mapping.dibujar()
-	// -------- En pruebas aun.
 
 	game.addVisual(arbolPrueba)
-	game.addVisual(corazonPrueba)
+	game.addVisual(corazon)
 	game.addVisual(ogroPrueba)
-
+	controlDeColisiones.init()
 
 	keyConfig.init()
-	//controlDeColisiones.init()
+
 	game.start()
 }
