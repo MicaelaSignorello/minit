@@ -1,14 +1,6 @@
 import wollok.game.*
 import personajes.*
 import paredes.*
-class Piedra {
-    method image() = "pedruzco.png"
-    var property position = game.at(2, 6)
-}
-
-object paredes{
-    //interno.Piedra().forEach( { p=>game.addVisual(new Duro(position=p));})
-}
 
 // 	 1 piedra , 2 (arbol), 5 corazon, 6 duende, 7 hacha,8 puerta ,9 espada,15 agua, 10 llave, 11, zarek,
 //	 12 cartel, 13 ogro,14  principe.     
@@ -91,7 +83,9 @@ object mapping{
             if(rastreador == 1){
                 const pared = new TipoPared(position = game.at(x, y), nombre = "pared", dano = 0, image = "pedruzco.png")
                 game.addVisual(pared)
-            } 
+            } else if (rastreador == 2){
+				const arbol = new Arbol(position = game.at(x, y), nombre = "arbol", dano = 0, image = "arbol.png")
+			} // Ver si hace falta pasarle imagen y nombre.
        		x += 1
         }
     }
@@ -106,3 +100,37 @@ object corazon {
 		game.removeVisual(self)
 	}
 }
+
+object espada {
+	var property position = game.at(10, 10)
+	var property image = "espada.png"
+	var property nombre = "espada"
+
+	method remover(){
+		game.removeVisual(self)
+	}
+}
+
+class Arbol{
+	var property position
+	var property image = "arbol.png"
+	var property nombre = "arbol"
+}
+
+class Rio{
+	var property position
+	var property orientacion = "NS"
+	var property image = "rio.png"
+	var property nombre = "rio"
+}
+
+object prision {
+	var property position = game.at(4, 4)
+	var property image = "prision.png"
+	var property nombre "pision"
+}
+
+//	Se puede hacer clase "elementosDelMapa" y usar como interfaz.
+//	Para: Corazon, prision, espada, rio, piedra, arbol
+
+//	Pasar a archivo "paredes.wlk", renombrar a "elementos".
