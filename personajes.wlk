@@ -18,79 +18,52 @@ object zarek {
     //   method position() = if (centrado) game.center() else game.origin()
 
     method tomarCorazon(){
-        zarek.tieneCorazon(true)
+        self.tieneCorazon(true)
         game.removeVisual(corazon) // Deberia ser: espada.remover() ? ? ?
     }
 
     method tomarEspada(){
-        zarek.tieneEspada(true)
+        self.tieneEspada(true)
         espada.remover() // Idem metodo anterior, ver cual queda.
     }
 
-    method mover(unaDirec){
-        if (unaDirec == "arriba"){
-            
-        }
-    }
-    //  No se como sinstetizar el codigo de abajo... If's anidados??
-
     method moverArriba(){
-        var tempPos = game.at(position.x(), 10.min(position.y() + 1))
+        const tempPos = game.at(position.x(), 10.min(position.y() + 1))
         self.position(tempPos) //game.at(position.x(), 10.min(position.y() + 1))
-        orientacion = 1
+        image = "jugador1.png"
     }
 
     method moverAbajo(){
-        var tempPos = game.at(position.x(), 10.min(position.y() - 1))
+        const tempPos = game.at(position.x(), 10.min(position.y() - 1))
         self.position(tempPos)
-        orientacion = 2
+		image = "jugador2.png"
     }
 
     method moverDer(){
-        var tempPos = game.at(position.x() +1, 10.min(position.y()))
+        const tempPos = game.at(position.x() +1, 10.min(position.y()))
         self.position(tempPos)
-        orientacion = 3
+		image = "jugador3.png"
+
     }
 
     method moverIzq(){
-        var tempPos = game.at(position.x() -1, 10.min(position.y()))
+        const tempPos = game.at(position.x() -1, 10.min(position.y()))
         self.position(tempPos)
-        orientacion = 4
+	    image = "jugador4.png"
     }
 
-    method moverDireccion(unaDirec){
-        if (unaDirec == "arriba")
-            self.moverArriba()
-        else if (unaDirec == "abajo")
-            self.moverAbajo()
-        else if (unaDirec == "derecha")
-            self.moverDer()
-        else
-            self.moverIzq()
+    //method moverDireccion(unaDirec){
+    //    if (unaDirec == "arriba")
+    //        self.moverArriba()
+    //    else if (unaDirec == "abajo")
+    //        self.moverAbajo()
+    //    else if (unaDirec == "derecha")
+    //        self.moverDer()
+    //    else
+    //        self.moverIzq()
 
-        self.giro()
-    }
-
-    method giro(){
-		
-		if (orientacion == 1){
-			image = "jugador1.png"
-		}
-		
-		if (orientacion == 2){
-			image = "jugador.png"
-		}
-		
-		if (orientacion == 3){
-			image = "jugador3.png"
-		}
-		
-		if (orientacion == 4){
-			image = "jugador2.png"
-		}
-	}
-    
-
+    //    self.giro()
+    //}
 
     method position(prediccionPosicion){
 	var area = []
