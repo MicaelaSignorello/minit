@@ -2,32 +2,16 @@ import wollok.game.*
 import personajes.*
 import mapa.*
 import interfaz.*
+import level.*
 
 program minit{
 	game.title("Minit!")
 	game.height(12)
-	game.width(25)
-	game.boardGround("background.png")
-
-	game.addVisual(zarek)
-
-	//game.addVisual(piedra)
-
-	game.addVisual(reloj)
-	reloj.iniciar()
-
-	game.addVisual(timer)
-	// Dibujado del mapa:
-	mapping.dibujar()
-
-	game.addVisual(arbolPrueba)
-	game.addVisual(corazon)
-	game.addVisual(ogroPrueba)
-	game.addVisual(principe)
-
-	controlDeColisiones.init()
-
+	game.width(26)
+	//game.boardGround("background.png")
+	//mapping.dibujar(estructuraInicio.estructura())
 	keyConfig.init()
+	pantallaInicial.init()
 
 	game.start()
 }

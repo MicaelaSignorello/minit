@@ -9,56 +9,57 @@ object zarek {
     var property tieneCorazon = false
     var property tieneEspada = false
 
+    var property orientacion = 0
+
     //   method position() = if (centrado) game.center() else game.origin()
 
     method tomarCorazon(){
-        zarek.tieneCorazon(true)
+        self.tieneCorazon(true)
         game.removeVisual(corazon) // Deberia ser: espada.remover() ? ? ?
     }
 
     method tomarEspada(){
-        zarek.tieneEspada(true)
+        self.tieneEspada(true)
         espada.remover() // Idem metodo anterior, ver cual queda.
     }
 
-    method mover(unaDirec){
-        if (unaDirec == "arriba"){
-            
-        }
-    }
-    //  No se como sinstetizar el codigo de abajo... If's anidados??
-
     method moverArriba(){
-        var tempPos = game.at(position.x(), 10.min(position.y() + 1))
+        const tempPos = game.at(position.x(), 10.min(position.y() + 1))
         self.position(tempPos) //game.at(position.x(), 10.min(position.y() + 1))
+        image = "jugador1.png"
     }
 
     method moverAbajo(){
-        var tempPos = game.at(position.x(), 10.min(position.y() - 1))
+        const tempPos = game.at(position.x(), 10.min(position.y() - 1))
         self.position(tempPos)
+		image = "jugador2.png"
     }
 
     method moverDer(){
-        var tempPos = game.at(position.x() +1, 10.min(position.y()))
+        const tempPos = game.at(position.x() +1, 10.min(position.y()))
         self.position(tempPos)
+		image = "jugador3.png"
+
     }
 
     method moverIzq(){
-        var tempPos = game.at(position.x() -1, 10.min(position.y()))
+        const tempPos = game.at(position.x() -1, 10.min(position.y()))
         self.position(tempPos)
+	    image = "jugador4.png"
     }
 
-    method moverDireccion(unaDirec){
-        if (unaDirec == "arriba")
-            self.moverArriba()
-        else if (unaDirec == "abajo")
-            self.moverAbajo()
-        else if (unaDirec == "derecha")
-            self.moverDer()
-        else
-            self.moverIzq()
-    }
-    
+    //method moverDireccion(unaDirec){
+    //    if (unaDirec == "arriba")
+    //        self.moverArriba()
+    //    else if (unaDirec == "abajo")
+    //        self.moverAbajo()
+    //    else if (unaDirec == "derecha")
+    //        self.moverDer()
+    //    else
+    //        self.moverIzq()
+
+    //    self.giro()
+    //}
 
     method position(prediccionPosicion){
 	var area = []
@@ -94,24 +95,6 @@ object keyConfig {
         })
     }
 }
-//object opuestoDireccion {
-//    var property direccion = "izquierda"
-//
-//    method direccionOpuesta() { 
-//        var direccionResultante= ""
-//        if (direccion == "arriba" )
-//            direccionResultante = "abajo"
-//        else if (direccion == "derecha" )
-//            direccionResultante = "izquierda"
-//        else if (direccion == "abajo" )
-//            direccionResultante = "arriba"
-//        else 
-//            direccionResultante = "derecha"
-//
-//        return direccionResultante
-//    }
-//}
-
 
 object controlDeColisiones {
     method init(){
@@ -132,22 +115,22 @@ object controlDeColisiones {
 }
 */
 
-//Motor de colisión:
-
-
 object arbolPrueba {
     var property position = game.at(6, 6)
     var property image = "arbol.png"
 }
 
-object ogroPrueba {
-    var property position = game.at(17, 2)
+object ogro {
+    var property position = game.at(16, 2)
     var property image = "ogro.png"
 }
 
-// 21, 4
-
 object principe {
-    var property position = game.at(21, 4)//4, 21)
-    var property image = "principe2.png"
+    var property position = game.at(21, 4)
+    var property image = "principe.png"
+}
+
+object duende {
+    var property position = game.at(3, 2)
+    var property image = "duende.png"
 }
