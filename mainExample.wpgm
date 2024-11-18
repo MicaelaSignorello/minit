@@ -19,27 +19,17 @@ program minit{
 
 	// game.addVisual(timer)
 	
-	game.onTick(1000, "timer", { reloj.restarSegundos(1) })
+	//game.onTick(1000, "timer", { reloj.restarSegundos(1) })
 
 	// Dibujado del mapa:
 	mapping.dibujar()
-	// -------- En pruebas aun.
-
-	// Dibujado del mapa:
-	mapping.dibujar()
-	// -------- En pruebas aun.
 
 	keyConfig.init()
-	//controlDeColisiones.init()
-<<<<<<< HEAD
-=======
+	controlDeColisiones.init()
  
 	game.addVisual(arbolPrueba)
 	game.addVisual(corazonPrueba)
 	game.addVisual(ogroPrueba)
-
-
->>>>>>> f555e0d8ef131a606f4870821a816023ca68d51d
 
 	game.start()
 }
