@@ -3,7 +3,7 @@ import mapa.*
 
 object zarek {
 
-    var property image = "mica.png"
+    var property image = "zarekCostadoIzq.png"
     var property position = game.at(2, 2)
 
     var property tieneCorazon = false
@@ -149,5 +149,5 @@ object ogroPrueba {
 
 object principe {
     var property position = game.at(21, 4)//4, 21)
-    var property image = "mica.png"
+    var property image = "principe2.png"
 }
