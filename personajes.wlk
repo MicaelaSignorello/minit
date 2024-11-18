@@ -9,11 +9,6 @@ object zarek {
     var property tieneEspada = false
 
     var property orientacion = 0
-	
-	//var property arriba = 0
-	//var property abajo = 1
-	//var property izquierda = 2
-	//var property derecha = 3
 
     //   method position() = if (centrado) game.center() else game.origin()
 
@@ -125,11 +120,16 @@ object arbolPrueba {
 }
 
 object ogro {
-    var property position = game.at(17, 2)
+    var property position = game.at(16, 2)
     var property image = "ogro.png"
 }
 
 object principe {
     var property position = game.at(21, 4)
     var property image = "principe.png"
+}
+
+object duende {
+    var property position = game.at(3, 2)
+    var property image = "duende.png"
 }
