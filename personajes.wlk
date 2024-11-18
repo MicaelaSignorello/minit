@@ -9,11 +9,6 @@ object zarek {
     var property tieneEspada = false
 
     var property orientacion = 0
-	
-	//var property arriba = 0
-	//var property abajo = 1
-	//var property izquierda = 2
-	//var property derecha = 3
 
     //   method position() = if (centrado) game.center() else game.origin()
 
@@ -28,15 +23,14 @@ object zarek {
     }
 
     method mover(unaDirec){
-        if (unaDirec == "arriba"){
-            
-        }
+
     }
+
     //  No se como sinstetizar el codigo de abajo... If's anidados??
 
     method moverArriba(){
         var tempPos = game.at(position.x(), 10.min(position.y() + 1))
-        self.position(tempPos) //game.at(position.x(), 10.min(position.y() + 1))
+        self.position(tempPos)
         orientacion = 1
     }
 
@@ -72,7 +66,6 @@ object zarek {
     }
 
     method giro(){
-		
 		if (orientacion == 1){
 			image = "jugador1.png"
 		}
@@ -152,11 +145,16 @@ object arbolPrueba {
 }
 
 object ogro {
-    var property position = game.at(17, 2)
+    var property position = game.at(16, 2)
     var property image = "ogro.png"
 }
 
 object principe {
     var property position = game.at(21, 4)
     var property image = "principe.png"
+}
+
+object duende {
+    var property position = game.at(3, 2)
+    var property image = "duende.png"
 }
