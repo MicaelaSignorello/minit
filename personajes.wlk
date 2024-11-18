@@ -13,8 +13,20 @@ object zarek {
 
     method tomarCorazon(){
         zarek.tieneCorazon(true)
-        game.removeVisual(corazon)
+        game.removeVisual(corazon) // Deberia ser: espada.remover() ? ? ?
     }
+
+    method tomarEspada(){
+        zarek.tieneEspada(true)
+        espada.remover() // Idem metodo anterior, ver cual queda.
+    }
+
+    method mover(unaDirec){
+        if (unaDirec == "arriba"){
+            
+        }
+    }
+    //  No se como sintetizar el codigo de abajo... If's anidados??
 
     method moverArriba(){
         var tempPos = game.at(position.x(), 10.min(position.y() + 1))
