@@ -2,12 +2,18 @@ import wollok.game.*
 import mapa.*
 
 object zarek {
-
     var property image = "mica.png"
     var property position = game.at(2, 2)
 
     var property tieneCorazon = false
     var property tieneEspada = false
+
+    var property orientacion = 0
+	
+	//var property arriba = 0
+	//var property abajo = 1
+	//var property izquierda = 2
+	//var property derecha = 3
 
     //   method position() = if (centrado) game.center() else game.origin()
 
@@ -31,21 +37,25 @@ object zarek {
     method moverArriba(){
         var tempPos = game.at(position.x(), 10.min(position.y() + 1))
         self.position(tempPos) //game.at(position.x(), 10.min(position.y() + 1))
+        orientacion = 1
     }
 
     method moverAbajo(){
         var tempPos = game.at(position.x(), 10.min(position.y() - 1))
         self.position(tempPos)
+        orientacion = 2
     }
 
     method moverDer(){
         var tempPos = game.at(position.x() +1, 10.min(position.y()))
         self.position(tempPos)
+        orientacion = 3
     }
 
     method moverIzq(){
         var tempPos = game.at(position.x() -1, 10.min(position.y()))
         self.position(tempPos)
+        orientacion = 4
     }
 
     method moverDireccion(unaDirec){
@@ -57,8 +67,30 @@ object zarek {
             self.moverDer()
         else
             self.moverIzq()
+
+        self.giro()
     }
+
+    method giro(){
+		
+		if (orientacion == 1){
+			image = "jugador1.png"
+		}
+		
+		if (orientacion == 2){
+			image = "jugador.png"
+		}
+		
+		if (orientacion == 3){
+			image = "jugador3.png"
+		}
+		
+		if (orientacion == 4){
+			image = "jugador2.png"
+		}
+	}
     
+
 
     method position(prediccionPosicion){
 	var area = []
@@ -94,24 +126,6 @@ object keyConfig {
         })
     }
 }
-//object opuestoDireccion {
-//    var property direccion = "izquierda"
-//
-//    method direccionOpuesta() { 
-//        var direccionResultante= ""
-//        if (direccion == "arriba" )
-//            direccionResultante = "abajo"
-//        else if (direccion == "derecha" )
-//            direccionResultante = "izquierda"
-//        else if (direccion == "abajo" )
-//            direccionResultante = "arriba"
-//        else 
-//            direccionResultante = "derecha"
-//
-//        return direccionResultante
-//    }
-//}
-
 
 object controlDeColisiones {
     method init(){
@@ -132,22 +146,17 @@ object controlDeColisiones {
 }
 */
 
-//Motor de colisión:
-
-
 object arbolPrueba {
     var property position = game.at(6, 6)
     var property image = "arbol.png"
 }
 
-object ogroPrueba {
+object ogro {
     var property position = game.at(17, 2)
     var property image = "ogro.png"
 }
 
-// 21, 4
-
 object principe {
-    var property position = game.at(21, 4)//4, 21)
-    var property image = "mica.png"
+    var property position = game.at(21, 4)
+    var property image = "principe.png"
 }

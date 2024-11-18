@@ -40,9 +40,9 @@ object reloj {
     }
 }
 
-object gameOver{
-
-
-    method sinTiempo() = 0
-
-}
+//object gameOver{
+//
+//
+//    method sinTiempo() = 0
+//
+//}
