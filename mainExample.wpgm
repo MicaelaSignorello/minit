@@ -13,23 +13,20 @@ program minit{
 
 	game.addVisual(piedra)
 
-
 	game.addVisual(reloj)
 	reloj.iniciar()
 
-	// game.addVisual(timer)
-	
-	//game.onTick(1000, "timer", { reloj.restarSegundos(1) })
-
+	game.addVisual(timer)
 	// Dibujado del mapa:
 	mapping.dibujar()
 
-	keyConfig.init()
-	controlDeColisiones.init()
- 
 	game.addVisual(arbolPrueba)
-	game.addVisual(corazonPrueba)
+	game.addVisual(corazon)
 	game.addVisual(ogroPrueba)
+
+	controlDeColisiones.init()
+
+	keyConfig.init()
 
 	game.start()
 }

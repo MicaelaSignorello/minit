@@ -4,11 +4,17 @@ import mapa.*
 object zarek {
 
     var property image = "mica.png"
-
-    //method image() = "mica.png"
     var property position = game.at(2, 2)
 
+    var property tieneCorazon = false
+    var property tieneEspada = false
+
     //   method position() = if (centrado) game.center() else game.origin()
+
+    method tomarCorazon(){
+        zarek.tieneCorazon(true)
+        game.removeVisual(corazon)
+    }
 
     method moverArriba(){
         var tempPos = game.at(position.x(), 10.min(position.y() + 1))
@@ -61,60 +67,45 @@ object keyConfig {
     method init(){
         keyboard.up().onPressDo({
             zarek.moverArriba()
-            opuestoDireccion.direccion("arriba") 
         })
 
         keyboard.down().onPressDo({
             zarek.moverAbajo()
-            opuestoDireccion.direccion("abajo") 
         })
 
         keyboard.right().onPressDo({
             zarek.moverDer()
-            opuestoDireccion.direccion("derecha") 
         })
 
         keyboard.left().onPressDo({
             zarek.moverIzq()
-            opuestoDireccion.direccion("izquierda") 
         })
     }
 }
-object opuestoDireccion {
-    var property direccion = "izquierda"
-
-    method direccionOpuesta() { 
-        var direccionResultante= ""
-        if (direccion == "arriba" )
-            direccionResultante = "abajo"
-        else if (direccion == "derecha" )
-            direccionResultante = "izquierda"
-        else if (direccion == "abajo" )
-            direccionResultante = "arriba"
-        else 
-            direccionResultante = "derecha"
-
-        return direccionResultante
-    }
-}
+//object opuestoDireccion {
+//    var property direccion = "izquierda"
+//
+//    method direccionOpuesta() { 
+//        var direccionResultante= ""
+//        if (direccion == "arriba" )
+//            direccionResultante = "abajo"
+//        else if (direccion == "derecha" )
+//            direccionResultante = "izquierda"
+//        else if (direccion == "abajo" )
+//            direccionResultante = "arriba"
+//        else 
+//            direccionResultante = "derecha"
+//
+//        return direccionResultante
+//    }
+//}
 
 
 object controlDeColisiones {
     method init(){
-        game.onCollideDo(piedra, {
-            zarek => zarek.moverDireccion(opuestoDireccion.direccionOpuesta())
-        })
+        game.onCollideDo(corazon, {zarek => zarek.tomarCorazon()})
     }
 }
-
-//object controlDeColisiones {
-//    method init(){
-//        game.onCollideDo(TipoPared, {
-//            zarek => zarek.moverDireccion(opuestoDireccion.direccionOpuesta())
-//        })
-//    }
-//}
-
 
 
 /*
@@ -141,11 +132,6 @@ object piedra {
 object arbolPrueba {
     var property position = game.at(6, 6)
     var property image = "arbol.png"
-}
-
-object corazonPrueba {
-    var property position = game.at(8, 6)
-    var property image = "corazon.png"
 }
 
 object ogroPrueba {
