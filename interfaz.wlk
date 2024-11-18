@@ -15,7 +15,7 @@ object reloj {
 	
 	method text() = tiempo.toString()
     method textColor() = paleta.verde()
-    method textSize() = 10
+    
 	method position() = game.at(0, game.height()-1)
 	
 	method pasarTiempo() {
