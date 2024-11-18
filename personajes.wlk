@@ -26,7 +26,7 @@ object zarek {
             
         }
     }
-    //  No se como sintetizar el codigo de abajo... If's anidados??
+    //  No se como sinstetizar el codigo de abajo... If's anidados??
 
     method moverArriba(){
         var tempPos = game.at(position.x(), 10.min(position.y() + 1))
@@ -132,12 +132,6 @@ object controlDeColisiones {
 }
 */
 
-
-object piedra {
-    method image() = "piedra.png"
-    var property position = game.at(2, 6)
-}
-
 //Motor de colisión:
 
 
@@ -147,6 +141,13 @@ object arbolPrueba {
 }
 
 object ogroPrueba {
-    var property position = game.at(6, 8)
+    var property position = game.at(17, 2)
     var property image = "ogro.png"
+}
+
+// 21, 4
+
+object principe {
+    var property position = game.at(21, 4)//4, 21)
+    var property image = "mica.png"
 }

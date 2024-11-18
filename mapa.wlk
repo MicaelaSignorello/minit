@@ -28,7 +28,7 @@ import paredes.*
 			                           
 			0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 , 0 , 0 , 1 , 0 ,
 			                           
-			0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ,13 , 0 , 0 , 0 , 0 , 0 , 1 , 0 ,
+			0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 13, 0 , 0 , 0 , 0 , 0 , 1 , 0 ,
 			                           
 			0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 0 ,
 			                           
@@ -127,7 +127,7 @@ class Rio{
 object prision {
 	var property position = game.at(4, 4)
 	var property image = "prision.png"
-	var property nombre "pision"
+	var property nombre = "pision"
 }
 
 //	Se puede hacer clase "elementosDelMapa" y usar como interfaz.

@@ -11,7 +11,7 @@ program minit{
 
 	game.addVisual(zarek)
 
-	game.addVisual(piedra)
+	//game.addVisual(piedra)
 
 	game.addVisual(reloj)
 	reloj.iniciar()
@@ -23,6 +23,7 @@ program minit{
 	game.addVisual(arbolPrueba)
 	game.addVisual(corazon)
 	game.addVisual(ogroPrueba)
+	game.addVisual(principe)
 
 	controlDeColisiones.init()
 
