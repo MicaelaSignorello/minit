@@ -4,8 +4,8 @@ object timer{
 }
 
 object paleta {
-  const property verde = "00FF00FF"
-  const property rojo = "FF0000FF"
+	const property verde = "00FF00FF"
+	const property rojo = "FF0000FF"
 }
 
 
@@ -35,7 +35,7 @@ object reloj {
 
     method perderJuegoPorReloj(){
         if(tiempo == 0){
-            gameOver.sinTiempo()
+            //gameOver.sinTiempo()
         }
     }
 }
@@ -46,3 +46,22 @@ object reloj {
 //    method sinTiempo() = 0
 //
 //}
+
+
+
+// Objeto mensaje para Interfaz:
+object mensaje{
+    var property text = ""
+    var property textColor = paleta.verde()
+    var property image = "msgBox.png"
+
+    method position() = game.at(game.width() - 1 , 1)
+
+    method escribir(msg){
+        text = msg
+    }
+
+    method borrarMsg(){
+        text = ""
+    }
+}

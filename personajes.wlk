@@ -2,9 +2,8 @@ import wollok.game.*
 import mapa.*
 
 object zarek {
-
-    var property image = "zarekCostadoIzq.png"
-    var property position = game.at(2, 2)
+    var property image = "zarek.png"
+    var property position = game.center()
 
     var property tieneCorazon = false
     var property tieneEspada = false
@@ -21,50 +20,38 @@ object zarek {
     method tomarEspada(){
         self.tieneEspada(true)
         espada.remover() // Idem metodo anterior, ver cual queda.
+        image = "zarekConEspada1.png"   
+
     }
 
     method moverArriba(){
         const tempPos = game.at(position.x(), 10.min(position.y() + 1))
         self.position(tempPos) //game.at(position.x(), 10.min(position.y() + 1))
-        image = "jugador1.png"
+        image = "zarekEspalda2.png"
     }
 
     method moverAbajo(){
         const tempPos = game.at(position.x(), 10.min(position.y() - 1))
         self.position(tempPos)
-		image = "jugador2.png"
+		image = if (tieneEspada) "zarekConEspada1.png" else "zarek.png"
     }
 
     method moverDer(){
         const tempPos = game.at(position.x() +1, 10.min(position.y()))
         self.position(tempPos)
-		image = "jugador3.png"
-
+		image = "zarekCostado.png"
     }
 
     method moverIzq(){
         const tempPos = game.at(position.x() -1, 10.min(position.y()))
         self.position(tempPos)
-	    image = "jugador4.png"
+	    image = "zarekCostadoIzq.png"
     }
 
-    //method moverDireccion(unaDirec){
-    //    if (unaDirec == "arriba")
-    //        self.moverArriba()
-    //    else if (unaDirec == "abajo")
-    //        self.moverAbajo()
-    //    else if (unaDirec == "derecha")
-    //        self.moverDer()
-    //    else
-    //        self.moverIzq()
-
-    //    self.giro()
-    //}
-
     method position(prediccionPosicion){
-	var area = []
-	
-	//Colisiones:
+	    var area = []
+    
+	    //Colisiones:
 	
 		//Se llena una colección con los objetos que hayan en la posición predecida, se filtra a través de un identificador:
 			area = game.getObjectsIn(prediccionPosicion).filter({ visual => visual.nombre() == "pared"})
@@ -99,6 +86,7 @@ object keyConfig {
 object controlDeColisiones {
     method init(){
         game.onCollideDo(corazon, {zarek => zarek.tomarCorazon()})
+        game.onCollideDo(espada, {zarek => zarek.tomarEspada()})
     }
 }
 
@@ -127,10 +115,11 @@ object ogro {
 
 object principe {
     var property position = game.at(21, 4)
-    var property image = "principe.png"
+    var property image = "principe2.png"
 }
 
-object duende {
-    var property position = game.at(3, 2)
-    var property image = "duende.png"
+object duende{
+	var property position = game.at(1, 3)
+	var property image = "duende.png"
+	var property nombre = "duende"
 }

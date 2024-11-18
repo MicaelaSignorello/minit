@@ -28,9 +28,9 @@ import paredes.*
 			                           
 			1 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 11 , 0 , 0 , 0 , 0 , 0 , 0 , 0  , 1 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0, 1,
 			                           
-			1 , 2 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 13, 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0, 1 ,
+			1 , 2 , 2 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 13, 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0, 1 ,
 			                           
-			1 , 0,  0 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 0 , 0, 1 ,
+			1 , 0,  0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 0 , 0, 1 ,
 			                           
 			1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1, 1 
 		]
@@ -170,6 +170,12 @@ class Rio{
 	var property orientacion = "NS"
 	var property image = "rio.png"
 	var property nombre = "rio"
+}
+
+class TipoPared {
+	var property position
+	var property nombre
+	var property image
 }
 
 object prision {

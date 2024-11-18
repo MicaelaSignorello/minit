@@ -21,6 +21,8 @@ class Nivel{
         game.addVisual(corazon)
         game.addVisual(ogro)
         game.addVisual(principe)
+        game.addVisual(espada)
+        game.addVisual(duende)
 
         game.addVisual(timer)
         game.addVisual(reloj)
@@ -61,7 +63,7 @@ object gameOver {
         game.addVisual(self)
         //  Enter para reiniciar
         keyboard.enter().onPressDo({game.clear(); nivelDificil.init()})
-        keyboard.esc().onPressDo({game.stop()})
+        keyboard.space().onPressDo({game.stop()})
     }
 }
 
