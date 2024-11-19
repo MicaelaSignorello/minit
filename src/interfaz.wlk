@@ -44,32 +44,28 @@ object reloj {
 	method pasarTiempo() {
 		tiempo = 0.max(tiempo - 1) 
         self.detenerEn(0)
+
+        if (tiempo == 0){
+            gameOver.init()
+        }
 	}
 	method iniciar(){
 		tiempo = 60
-		game.onTick(2000, "tiempo", {self.pasarTiempo()})
+		game.onTick(1000, "tiempo", {self.pasarTiempo()})
         
 	}
 	method detenerEn(cantidad){
-        if( cantidad == tiempo)
+        if(cantidad == tiempo)
 		    game.removeTickEvent("tiempo")
         
 	}
 
     method perderJuegoPorReloj(){
-        if(tiempo == 0){
+        if (tiempo == 0){
             gameOver.init()
         }
     }
 }
-
-//object gameOver{
-//
-//
-//    method sinTiempo() = 0
-//
-//}
-
 
 
 // Objeto mensaje para Interfaz:

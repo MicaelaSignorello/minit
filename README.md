@@ -1,4 +1,4 @@
-#Minit!
+# Minit!
 
 La princesa *Zarek* quiere rescatar al *Príncipe*, encerrado en una lúgubre prisión del bosque de Unargham.
 No será una misión sencilla para ella, deberá afrontar múltiples obstáculos y salir airosa de todos, para lograr liberar a su enamorado. 

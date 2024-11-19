@@ -55,7 +55,7 @@ object zarek {
     method moverAbajo(){
         const tempPos = game.at(position.x(), 10.min(position.y() - 1))
         self.position(tempPos)
-		image = if (tieneEspada) "zarekConEspada1.png" else "zarek.png"
+		image = if (tieneEspada) "zarekConEspada1.png" else if (tieneHacha) "zarekConHacha.png" else "zarek.png"
     }
 
     method moverDer(){
@@ -106,7 +106,5 @@ object controlDeColisiones {
 		game.onCollideDo(triggerDuende, {zarek => zarek.leerMensaje(triggerDuende)})
 		game.onCollideDo(triggerPrincipe1, {zarek => zarek.leerMensaje(triggerPrincipe1)})
 		game.onCollideDo(triggerPrincipe2, {zarek => zarek.leerMensaje(triggerPrincipe2)})
-
-
     }
 }

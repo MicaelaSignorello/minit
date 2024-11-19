@@ -2,6 +2,7 @@ import wollok.game.*
 import mapa.*
 import interfaz.*
 import zarek.*
+import level.*
 
 object ogro {
     var property position = game.at(16, 2)
@@ -15,8 +16,9 @@ object ogro {
 
     method interaccion(){
         if (zarek.tieneEspada()){
-            ogro.morir()
+            self.morir()
             game.removeVisual(triggerOgro)
+			zarek.tieneEspada(false)
         } else {
             zarek.moverIzq()
         }
@@ -62,7 +64,7 @@ object triggerPrincipe1{
 	method msg(){
 		var texto = "                                                                       Necesitas el corazón para conquistar al principe ♥."
 
-		if (zarek.tieneEspada()){
+		if (zarek.tieneCorazon()){
 			texto = "                                                                       ♥ Conquistaste al principe ♥"
 		}
 
@@ -105,7 +107,7 @@ object triggerDuende {
 		image = "noNum.png"
 
 		if(image == "noNum.png"){
-			position = game.at(6, 4)
+			position = game.at(8, 4)
 			keyboard.num1().onPressDo({
 				image = "1.png"
 				keyboard.num4().onPressDo({
@@ -205,6 +207,7 @@ object arbolCaido{
 			image = "arbolCaido.png"
 			nombre = "arbolCaido"
 			game.removeVisual(rioCollide)
+			zarek.tieneHacha(false)
 		} else {
 			zarek.moverAbajo()
 		}
@@ -219,8 +222,11 @@ object triggerArbol1{
 	method msg(){
 		var texto = "                                                                       Necesito un hacha para cortar el arbol."
 
-		if (zarek.tieneEspada()){
+		if (zarek.tieneHacha()){
 			texto = "                                                                       Corta el arbol ! ! !"
+			game.removeVisual(self)
+			game.removeVisual(triggerArbol2)
+
 		}
 
 		const mensaje = new Mensaje(text = texto)
@@ -237,8 +243,10 @@ object triggerArbol2{
 	method msg(){
 		var texto = "                                                                       Necesito un hacha para cortar el arbol."
 
-		if (zarek.tieneEspada()){
+		if (zarek.tieneHacha()){
 			texto = "                                                                       Corta el arbol ! ! !"
+			game.removeVisual(self)
+			game.removeVisual(triggerArbol1)
 		}
 
 		const mensaje = new Mensaje(text = texto)

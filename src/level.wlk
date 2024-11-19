@@ -5,12 +5,12 @@ import interfaz.*
 import zarek.*
 
 object pantallaInicial{
-    var property image = "inicio.png"
+    var property image = "inicioGame.png"
     var property position = game.at(0, 0)
 
     method init(){
         game.addVisual(self)
-        mapping.dibujar(estructuraInicio.estructura())
+        //mapping.dibujar(estructuraInicio.estructura())
         keyboard.enter().onPressDo({game.clear(); nivelDificil.init()})
 		keyboard.space().onPressDo({game.clear(); nivelDificil.init()})
     }
@@ -36,6 +36,8 @@ class Nivel{
 		game.addVisual(triggerArbol1)
 		game.addVisual(triggerArbol2)
 		game.addVisual(rioCollide)
+        game.addVisual(triggerPrincipe1)
+        game.addVisual(triggerPrincipe2)
 
         game.addVisual(timer)
         game.addVisual(reloj)
@@ -74,21 +76,20 @@ object gameOver {
     var property position = game.at(0, 0)
 
     method init(){
-        //  IF dificultad
         game.clear()
         game.addVisual(self)
         //  Enter para reiniciar
+        keyboard.space().onPressDo({game.clear(); nivelDificil.init()})
         keyboard.enter().onPressDo({game.clear(); nivelDificil.init()})
-        keyboard.space().onPressDo({game.stop()})
     }
 }
 
 object gameEnd {
-    var property image = "gameEnd.png"
+    var property image = "final.png"
     var property position = game.at(0, 0)
 
     method init(){
-        game.clear()
+        //game.clear()
         game.addVisual(self)
         keyboard.enter().onPressDo({game.stop()})
         keyboard.space().onPressDo({game.stop()})
