@@ -13,9 +13,7 @@ program minit{
 	//mapping.dibujar(estructuraInicio.estructura())
 	keyConfig.init()
 	
-	//pantallaInicial.init()
-
-	nivelDificil.init()
-	
+	pantallaInicial.init()
+		
 	game.start()
 }
