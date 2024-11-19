@@ -12,9 +12,9 @@ program minit{
 	//game.boardGround("background.png")
 	//mapping.dibujar(estructuraInicio.estructura())
 	
-	//pantallaInicial.init()
+	pantallaInicial.init()
 
-	nivelDificil.init()
+	//nivelDificil.init()
 
 	game.start()
 }
