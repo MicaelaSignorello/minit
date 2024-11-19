@@ -1,3 +1,5 @@
+import zarek.*
+
 object keyConfig {
     method init(){
         keyboard.up().onPressDo({

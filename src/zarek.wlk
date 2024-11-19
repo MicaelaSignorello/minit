@@ -96,7 +96,5 @@ object controlDeColisiones {
         game.onCollideDo(triggerPuerta, {zarek => zarek.leerMensaje(triggerPuerta)})
         game.onCollideDo(triggerArbol1, {zarek => zarek.leerMensaje(triggerArbol1)})
         game.onCollideDo(triggerArbol2, {zarek => zarek.leerMensaje(triggerArbol2)})
-
-
     }
 }
