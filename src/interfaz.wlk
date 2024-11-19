@@ -1,3 +1,23 @@
+object keyConfig {
+    method init(){
+        keyboard.up().onPressDo({
+            zarek.moverArriba()
+        })
+
+        keyboard.down().onPressDo({
+            zarek.moverAbajo()
+        })
+
+        keyboard.right().onPressDo({
+            zarek.moverDer()
+        })
+
+        keyboard.left().onPressDo({
+            zarek.moverIzq()
+        })
+    }
+}
+
 object timer{
     var property position = game.at(0, 11)
     var property image = "reloj.png"

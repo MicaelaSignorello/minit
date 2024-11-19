@@ -1,8 +1,9 @@
 import wollok.game.*
-import personajes.*
+import elementos.*
 import mapa.*
 import interfaz.*
 import level.*
+import zarek.*
 
 program minit{
 	game.title("Minit!")
@@ -11,7 +12,10 @@ program minit{
 	//game.boardGround("background.png")
 	//mapping.dibujar(estructuraInicio.estructura())
 	keyConfig.init()
-	pantallaInicial.init()
+	
+	//pantallaInicial.init()
 
+	nivelDificil.init()
+	
 	game.start()
 }

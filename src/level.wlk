@@ -1,7 +1,8 @@
 import wollok.game.*
 import mapa.*
-import personajes.*
+import elementos.*
 import interfaz.*
+import zarek.*
 
 object pantallaInicial{
     var property image = "inicio.png"
@@ -18,7 +19,6 @@ class Nivel{
     method init(){
         game.addVisual(self)
 
-        game.addVisual(arbolPrueba)
         game.addVisual(corazon)
         game.addVisual(ogro)
         game.addVisual(principe)
@@ -26,6 +26,8 @@ class Nivel{
         game.addVisual(duende)
         game.addVisual(llave)
         game.addVisual(puerta)
+		game.addVisual(hacha)
+		game.addVisual(arbolCaido)
 
         game.addVisual(triggerOgro)
         game.addVisual(triggerPuerta)
@@ -33,6 +35,8 @@ class Nivel{
         game.addVisual(timer)
         game.addVisual(reloj)
 	    reloj.iniciar()
+
+		isla.init()
 
         game.addVisual(zarek)
         controlDeColisiones.init()
@@ -82,6 +86,6 @@ object gameEnd {
         game.clear()
         game.addVisual(self)
         keyboard.enter().onPressDo({game.stop()})
-        keyboard.esc().onPressDo({game.stop()})
+        keyboard.space().onPressDo({game.stop()})
     }
 }

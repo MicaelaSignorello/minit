@@ -1,5 +1,5 @@
 import wollok.game.*
-import personajes.*
+import elementos.*
 import interfaz.*
 
 // 	 1 piedra , 2 (arbol), 9 espada,15 agua
@@ -11,9 +11,9 @@ import interfaz.*
 			    
 			1 , 1 , 1 , 0 , 0 , 1 , 0 , 0 , 0 , 0 , 0 , 2 , 2 , 2 , 2 , 2 , 0 , 0 , 0 , 0 , 0 ,12 , 1 , 0 , 0, 1 ,
 			                          
-			1 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 , 0 , 0 , 2 , 2 , 2 , 0 , 2 , 0 , 0 , 0 , 0 , 2 ,12 , 0 , 0 ,10, 1 ,
+			1 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 , 0 , 0 , 2 , 0 , 0 , 0 , 2 , 0 , 0 , 0 , 0 , 0 ,12 , 0 , 0 ,10, 1 ,
 			                           
-			1 , 1 , 8 , 1 , 1 , 1 , 0 , 0 , 0 , 0 , 0 , 2 , 2 , 2 , 2 , 2 , 0 , 0 , 0 , 0 , 0 ,12, 10 , 0,  0, 1 ,
+			1 , 1 , 8 , 1 , 1 , 1 , 0 , 0 , 0 , 0 , 0 , 2 , 2 , 2 , 0 , 2 , 0 , 0 , 0 , 0 , 0 ,12, 10 , 0,  0, 1 ,
 			                           
 			1 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ,14 ,13 ,13 ,13, 13,
 			                          
@@ -115,100 +115,28 @@ object mapping{
         }
     }
 }
+object isla{
+	method init(){
+		game.addVisual(new Rio(position = game.at(21, 11), image = "rioVertical.png"))
+		game.addVisual(new Rio(position = game.at(21, 10), image = "rioVertical.png"))
+	
+		game.addVisual(new Rio(position = game.at(21, 9), image = "rioVertical.png"))
+		game.addVisual(new Rio(position = game.at(21, 8), image = "rioVertical.png"))
 
-object corazon {
-    var property position = game.at(14, 9)
-    var property image = "corazon.png"
-	var property nombre = "corazon"
+		game.addVisual(new Rio(position = game.at(21, 7), image = "rioCodo.png"))
 
-	method remover(){
-		game.removeVisual(self)
+		game.addVisual(new Rio(position = game.at(22, 7), image = "rioHorizontal.png"))
+		game.addVisual(new Rio(position = game.at(23, 7), image = "rioHorizontal.png"))
+		game.addVisual(new Rio(position = game.at(24, 7), image = "rioHorizontal.png"))
+		game.addVisual(new Rio(position = game.at(25, 7), image = "rioHorizontal.png"))
 	}
 }
 
-object espada {
-	var property position = game.at(4, 10)
-	var property image = "espada.png"
-	var property nombre = "espada"
-
-	method remover(){
-		game.removeVisual(self)
-	}
-}
-
-object hacha {
-	var property position = game.at(1, 1)
-	var property image = "llave.png"
-	var property nombre = "hacha"
-
-	method remover(){
-		game.removeVisual(self)
-	}
-}
-
-object puerta{
-	var property position = game.at(2, 8)
-	var property image = "cerreada.png"
-	var property nombre = "puerta"
-
-	method interaccion(){
-		if (zarek.tieneLlave()){
-			image = "abierta.png"
-			game.removeVisual(triggerPuerta)
-		} else {
-			zarek.moverAbajo()
-		}
-	}
-}
-
-object triggerPuerta{
-	var property position = game.at(2, 7)
-	var property image = "mica.png"
-	var property nombre = "triggerPuerta"
-
-	    method msg(){
-        	var texto = "Necesitas la llave para abrir la puerta."
-        	if (zarek.tieneLlave()){
-        	    texto = "Puede Avanzar"
-        	}
-        	const mensaje = new Mensaje(text = texto)
-        	game.addVisual(mensaje)
-        	game.schedule(3500, {game.removeVisual(mensaje)})
-	}
-}
-
-object llave{
-	var property position = game.at(23, 9)
-	var property image = "llave.png"
-	var property nombre = "llave"
-
-	method remover(){
-		game.removeVisual(self)
-	}
-}
-
-class Arbol{
-	var property position
-	var property image = "arbol.png"
-}
-
-class Rio{
-	var property position
-	var property orientacion = "NS"
-	var property image = "rio.png"
-	var property nombre = "rio"
-}
 
 class TipoPared {
 	var property position
 	var property nombre
 	var property image
-}
-
-object prision {
-	var property position = game.at(4, 4)
-	var property image = "prision.png"
-	var property nombre = "pision"
 }
 
 //	Se puede hacer clase "elementosDelMapa" y usar como interfaz.
