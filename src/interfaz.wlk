@@ -1,4 +1,5 @@
 import zarek.*
+import level.*
 
 object keyConfig {
     method init(){
@@ -22,7 +23,7 @@ object keyConfig {
 
 object timer{
     var property position = game.at(0, 11)
-    var property image = "reloj.png"
+    var property image = "reloj1.png"
 }
 
 object paleta {
@@ -57,7 +58,7 @@ object reloj {
 
     method perderJuegoPorReloj(){
         if(tiempo == 0){
-            //gameOver.sinTiempo()
+            gameOver.init()
         }
     }
 }

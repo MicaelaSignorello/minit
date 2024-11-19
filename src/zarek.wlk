@@ -30,6 +30,11 @@ object zarek {
         game.removeVisual(corazon) // Deberia ser: espada.remover() ? ? ?
     }
 
+	method tomarHacha(){
+		self.tieneHacha(true)
+		game.removeVisual(hacha)
+	}
+
     method tomarEspada(){
         self.tieneEspada(true)
         espada.remover() // Idem metodo anterior, ver cual queda.
@@ -85,10 +90,12 @@ object controlDeColisiones {
         game.onCollideDo(corazon, {zarek => zarek.tomarCorazon()})
         game.onCollideDo(espada, {zarek => zarek.tomarEspada()})
         game.onCollideDo(llave, {zarek => zarek.tomarLlave()})
+        game.onCollideDo(hacha, {zarek => zarek.tomarHacha()})
 
         game.onCollideDo(ogro, {zarek => zarek.interactuarCon(ogro)})
         game.onCollideDo(puerta, {zarek => zarek.interactuarCon(puerta)})
 		game.onCollideDo(arbolCaido, {zarek => zarek.interactuarCon(arbolCaido)})
+		game.onCollideDo(principe, {zarek => zarek.interactuarCon(principe)})
 
         //  msgTriggers
         //game.onCollideDo(zarek, {zarek => zarek.mensajeOgro()})
@@ -96,5 +103,10 @@ object controlDeColisiones {
         game.onCollideDo(triggerPuerta, {zarek => zarek.leerMensaje(triggerPuerta)})
         game.onCollideDo(triggerArbol1, {zarek => zarek.leerMensaje(triggerArbol1)})
         game.onCollideDo(triggerArbol2, {zarek => zarek.leerMensaje(triggerArbol2)})
+		game.onCollideDo(triggerDuende, {zarek => zarek.leerMensaje(triggerDuende)})
+		game.onCollideDo(triggerPrincipe1, {zarek => zarek.leerMensaje(triggerPrincipe1)})
+		game.onCollideDo(triggerPrincipe2, {zarek => zarek.leerMensaje(triggerPrincipe2)})
+
+
     }
 }

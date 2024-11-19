@@ -120,7 +120,7 @@ object isla{
 		game.addVisual(new Rio(position = game.at(21, 11), image = "rioVertical.png"))
 		game.addVisual(new Rio(position = game.at(21, 10), image = "rioVertical.png"))
 	
-		game.addVisual(new Rio(position = game.at(21, 9), image = "rioVertical.png"))
+		//game.addVisual(new Rio(position = game.at(21, 9), image = "rioVertical.png"))
 		game.addVisual(new Rio(position = game.at(21, 8), image = "rioVertical.png"))
 
 		game.addVisual(new Rio(position = game.at(21, 7), image = "rioCodo.png"))

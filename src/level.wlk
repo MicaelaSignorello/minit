@@ -32,7 +32,11 @@ class Nivel{
 
         game.addVisual(triggerOgro)
         game.addVisual(triggerPuerta)
-        
+		game.addVisual(triggerDuende)
+		game.addVisual(triggerArbol1)
+		game.addVisual(triggerArbol2)
+		game.addVisual(rioCollide)
+
         game.addVisual(timer)
         game.addVisual(reloj)
 	    reloj.iniciar()
@@ -49,13 +53,13 @@ class Nivel{
 object nivelFacil inherits Nivel (){
     override method init(){
         super()
-        game.boardGround("nivelFacil.png")
+        game.boardGround("backgroundNivel.png")
         mapping.dibujar(estructuraDificil.estructura())
     }
 }
 
 object nivelDificil inherits Nivel(){
-    var property image = "nivelDificil.png"
+    var property image = "backgroundNivel.png"
     var property position = game.at(0, 0)
 
     override method init(){
