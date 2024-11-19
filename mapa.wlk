@@ -1,12 +1,9 @@
 import wollok.game.*
 import personajes.*
-import paredes.*
+import interfaz.*
 
-
-
-
-// 	 1 piedra , 2 (arbol), 9 espada,15 agua, 10 llave, 11 zarek, 
-//  12 rio vertical ,13 rio horizontal, 14r rio codo, 12 cartel, 13 ogro.
+// 	 1 piedra , 2 (arbol), 9 espada,15 agua
+//  12 rio vertical ,13 rio horizontal, 14r rio codo, 12 cartel
 
 	object estructuraDificil{
 		var property estructura = [
@@ -111,7 +108,7 @@ object mapping{
                 game.addVisual(pared)
             }
 			if (rastreador == 2){
-				const arbol = new Arbol(position = game.at(x, y), nombre = "arbol", image = "arbol.png")
+				const arbol = new Arbol(position = game.at(x, y), image = "arbol.png")
 				game.addVisual(arbol)
 			} // Ver si hace falta pasarle imagen y nombre.
        		x += 1
@@ -130,7 +127,7 @@ object corazon {
 }
 
 object espada {
-	var property position = game.at(10, 10)
+	var property position = game.at(4, 10)
 	var property image = "espada.png"
 	var property nombre = "espada"
 
@@ -141,7 +138,7 @@ object espada {
 
 object hacha {
 	var property position = game.at(1, 1)
-	var property image = "hacha.png"
+	var property image = "llave.png"
 	var property nombre = "hacha"
 
 	method remover(){
@@ -150,9 +147,40 @@ object hacha {
 }
 
 object puerta{
-	var property position = game.at(8, 2)
-	var property image = "abierta.png"
+	var property position = game.at(2, 8)
+	var property image = "cerreada.png"
 	var property nombre = "puerta"
+
+	method interaccion(){
+		if (zarek.tieneLlave()){
+			image = "abierta.png"
+			game.removeVisual(triggerPuerta)
+		} else {
+			zarek.moverAbajo()
+		}
+	}
+}
+
+object triggerPuerta{
+	var property position = game.at(2, 7)
+	var property image = "mica.png"
+	var property nombre = "triggerPuerta"
+
+	    method msg(){
+        	var texto = "Necesitas la llave para abrir la puerta."
+        	if (zarek.tieneLlave()){
+        	    texto = "Puede Avanzar"
+        	}
+        	const mensaje = new Mensaje(text = texto)
+        	game.addVisual(mensaje)
+        	game.schedule(3500, {game.removeVisual(mensaje)})
+	}
+}
+
+object llave{
+	var property position = game.at(23, 9)
+	var property image = "llave.png"
+	var property nombre = "llave"
 
 	method remover(){
 		game.removeVisual(self)
@@ -162,7 +190,6 @@ object puerta{
 class Arbol{
 	var property position
 	var property image = "arbol.png"
-	var property nombre = "arbol"
 }
 
 class Rio{

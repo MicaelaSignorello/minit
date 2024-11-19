@@ -1,14 +1,25 @@
 import wollok.game.*
 import mapa.*
+import interfaz.*
 
 object zarek {
     var property image = "zarek.png"
-    var property position = game.center()
+    var property position = game.at(6, 6)
 
     var property tieneCorazon = false
     var property tieneEspada = false
+    var property tieneLlave = false
 
-    var property orientacion = 0
+
+    //var property orientacion = 0
+
+    method leerMensaje(unPersonaje){
+        unPersonaje.msg()
+    }
+
+    method interactuarCon(unElemento){
+        unElemento.interaccion()
+    }
 
     //   method position() = if (centrado) game.center() else game.origin()
 
@@ -21,7 +32,11 @@ object zarek {
         self.tieneEspada(true)
         espada.remover() // Idem metodo anterior, ver cual queda.
         image = "zarekConEspada1.png"   
+    }
 
+    method tomarLlave(){
+        self.tieneLlave(true)
+        llave.remover()
     }
 
     method moverArriba(){
@@ -54,12 +69,12 @@ object zarek {
 	    //Colisiones:
 	
 		//Se llena una colección con los objetos que hayan en la posición predecida, se filtra a través de un identificador:
-			area = game.getObjectsIn(prediccionPosicion).filter({ visual => visual.nombre() == "pared"})
+		area = game.getObjectsIn(prediccionPosicion).filter({ visual => visual.nombre() == "pared"})
 			
 		//Si no se detecta ninguna pared con la colección, simplemente pase a la posición predecida:
-			if (area.size() == 0){
-				position = prediccionPosicion
-			}
+		if (area.size() == 0){
+			position = prediccionPosicion
+		}
     }
 }
 
@@ -87,6 +102,16 @@ object controlDeColisiones {
     method init(){
         game.onCollideDo(corazon, {zarek => zarek.tomarCorazon()})
         game.onCollideDo(espada, {zarek => zarek.tomarEspada()})
+        game.onCollideDo(llave, {zarek => zarek.tomarLlave()})
+
+        game.onCollideDo(ogro, {zarek => zarek.interactuarCon(ogro)})
+        game.onCollideDo(puerta, {zarek => zarek.interactuarCon(puerta)})
+
+
+        //  msgTriggers
+        //game.onCollideDo(zarek, {zarek => zarek.mensajeOgro()})
+        game.onCollideDo(triggerOgro, {zarek => zarek.leerMensaje(triggerOgro)})
+        game.onCollideDo(triggerPuerta, {zarek => zarek.leerMensaje(triggerPuerta)})
     }
 }
 
@@ -111,15 +136,46 @@ object arbolPrueba {
 object ogro {
     var property position = game.at(16, 2)
     var property image = "ogro.png"
+    var property nombre = "ogro"
+
+    method morir(){
+        position = game.at(17, 3)
+        image = "ogroMuerto.png"
+    }
+
+    method interaccion(){
+        if (zarek.tieneEspada()){
+            ogro.morir()
+            game.removeVisual(triggerOgro)
+        } else {
+            zarek.moverIzq()
+        }
+    }
 }
+
+object triggerOgro {
+    var property position = game.at(15, 2)
+    var property image = "mica.png"
+    var property nombre = "invisible"
+
+    method msg(){
+        var texto = "                                                                       Necesitas una espada para derrotar al Ogro."
+        if (zarek.tieneEspada()){
+            texto = "Derrotaste al Ogro."
+        }
+        const mensaje = new Mensaje(text = texto) // self.condicional()
+        game.addVisual(mensaje)
+        game.schedule(5000, {game.removeVisual(mensaje)})
+    }
+}
+
 
 object principe {
     var property position = game.at(21, 4)
     var property image = "principe2.png"
 }
 
-object duende{
-	var property position = game.at(1, 3)
+object duende {
+	var property position = game.at(2, 1)
 	var property image = "duende.png"
-	var property nombre = "duende"
 }

@@ -17,13 +17,19 @@ object pantallaInicial{
 class Nivel{
     method init(){
         game.addVisual(self)
+
         game.addVisual(arbolPrueba)
         game.addVisual(corazon)
         game.addVisual(ogro)
         game.addVisual(principe)
         game.addVisual(espada)
         game.addVisual(duende)
+        game.addVisual(llave)
+        game.addVisual(puerta)
 
+        game.addVisual(triggerOgro)
+        game.addVisual(triggerPuerta)
+        
         game.addVisual(timer)
         game.addVisual(reloj)
 	    reloj.iniciar()
@@ -50,6 +56,7 @@ object nivelDificil inherits Nivel(){
     override method init(){
         super()
         mapping.dibujar(estructuraDificil.estructura())
+
     }
 }
 

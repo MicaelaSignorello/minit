@@ -6,11 +6,11 @@ object timer{
 object paleta {
 	const property verde = "00FF00FF"
 	const property rojo = "FF0000FF"
+    const property negro = "00000000"
 }
 
 
 object reloj {
-	
 	var tiempo = 60
 	
 	method text() = tiempo.toString()
@@ -50,18 +50,20 @@ object reloj {
 
 
 // Objeto mensaje para Interfaz:
-object mensaje{
-    var property text = ""
-    var property textColor = paleta.verde()
+class Mensaje {
+    var property text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    var property textColor = paleta.negro()
     var property image = "msgBox.png"
+    var property position = game.at(7, 0)
 
-    method position() = game.at(game.width() - 1 , 1)
+    //method position() = game.at(3 , 3)
 
-    method escribir(msg){
-        text = msg
-    }
-
-    method borrarMsg(){
-        text = ""
-    }
+    //method escribir(){
+    //    game.addVisual(self)
+    //    //game.text(text)
+    //}
+    
+    //method borrarMsg(){
+    //    text = ""
+    //}
 }
