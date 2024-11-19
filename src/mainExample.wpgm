@@ -11,10 +11,10 @@ program minit{
 	game.width(26)
 	//game.boardGround("background.png")
 	//mapping.dibujar(estructuraInicio.estructura())
-	keyConfig.init()
+	//keyConfig.init()
 	
 	pantallaInicial.init()
-		
+
 	//nivelDificil.init()
 
 	game.start()

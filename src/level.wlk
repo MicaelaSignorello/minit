@@ -12,6 +12,7 @@ object pantallaInicial{
         game.addVisual(self)
         mapping.dibujar(estructuraInicio.estructura())
         keyboard.enter().onPressDo({game.clear(); nivelDificil.init()})
+		keyboard.space().onPressDo({game.clear(); nivelDificil.init()})
     }
 }
 
